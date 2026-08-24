@@ -79,7 +79,7 @@ document.querySelector('#app').innerHTML = `
         <!-- NFT #0003 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/hollowed3.png" alt="Hollowed #0003">
+                <img src="/hollowed3-v2.png" alt="Hollowed #0003">
             </div>
             <p>HOLLOWED #0003</p>
         </div>
