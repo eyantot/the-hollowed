@@ -44,10 +44,7 @@ document.querySelector('#app').innerHTML = `
 
       </div>
 
-      <div class="scroll-hint">
-        <span>↓</span>
-        DESCEND
-      </div>
+      
 
     </section>
 <!-- NFT COLLECTION -->
@@ -88,8 +85,7 @@ document.querySelector('#app').innerHTML = `
 
     </div>
 
-    <button class="main-button">ENTER THE HOLLOW</button>
-</section>
+    
 
     <!-- ALLOWLIST MODAL -->
     <div class="modal hidden" id="allowlist-modal">
