@@ -18,8 +18,7 @@ document.querySelector('#app').innerHTML = `
     <!-- HERO -->
     <section class="hero">
 
-      <div class="fog fog-1"></div>
-      <div class="fog fog-2"></div>
+  
 
       <div class="hero-content">
 
