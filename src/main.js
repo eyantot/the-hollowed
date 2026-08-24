@@ -50,10 +50,10 @@ document.querySelector('#app').innerHTML = `
 <!-- NFT COLLECTION -->
 <section class="collection">
     <div class="collection-header">
-        <p class="collection-eyebrow">THE HOLLOWED SOULS</p>
+        <p class="collection-eyebrow">THE SOULS REMAIN</p>
         <h2>THE <span>HOLLOWED</span></h2>
         <p class="collection-description">
-            Three souls. Three stories. One collection.
+            2,666 souls. One hollow. No way back.
         </p>
     </div>
 
