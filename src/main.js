@@ -50,7 +50,46 @@ document.querySelector('#app').innerHTML = `
       </div>
 
     </section>
+<!-- NFT COLLECTION -->
+<section class="collection">
+    <div class="collection-header">
+        <p class="collection-eyebrow">THE HOLLOWED SOULS</p>
+        <h2>THE <span>HOLLOWED</span></h2>
+        <p class="collection-description">
+            Three souls. Three stories. One collection.
+        </p>
+    </div>
 
+    <div class="nft-grid">
+
+        <!-- NFT #0001 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="/nft-1.png" alt="Hollowed #0001">
+            </div>
+            <p>HOLLOWED #0001</p>
+        </div>
+
+        <!-- NFT #0002 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="/nft-2.png" alt="Hollowed #0002">
+            </div>
+            <p>HOLLOWED #0002</p>
+        </div>
+
+        <!-- NFT #0003 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="/nft-3.png" alt="Hollowed #0003">
+            </div>
+            <p>HOLLOWED #0003</p>
+        </div>
+
+    </div>
+
+    <button class="main-button">ENTER THE HOLLOW</button>
+</section>
 
     <!-- ALLOWLIST MODAL -->
     <div class="modal hidden" id="allowlist-modal">

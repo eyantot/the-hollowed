@@ -1029,3 +1029,110 @@ button {
     width: 100%;
   }
 }
+/* ================================
+   THE HOLLOWED NFT COLLECTION
+================================ */
+
+.collection {
+    position: relative;
+    padding: 120px 6vw 100px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(104, 35, 180, 0.18), transparent 45%),
+        #050308;
+    text-align: center;
+    overflow: hidden;
+}
+
+.collection-header {
+    margin-bottom: 55px;
+}
+
+.collection-eyebrow {
+    color: #a875ff;
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.collection-header h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(42px, 6vw, 82px);
+    letter-spacing: 3px;
+    font-family: Georgia, serif;
+}
+
+.collection-header h2 span {
+    color: #914cff;
+    text-shadow: 0 0 25px rgba(145, 76, 255, 0.45);
+}
+
+.collection-description {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.nft-grid {
+    width: min(1150px, 100%);
+    margin: 0 auto 55px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.nft-card {
+    position: relative;
+    padding: 12px 12px 22px;
+    background: rgba(12, 7, 20, 0.9);
+    border: 1px solid rgba(145, 76, 255, 0.55);
+    border-radius: 14px;
+    box-shadow:
+        0 0 25px rgba(100, 35, 180, 0.12),
+        inset 0 0 25px rgba(100, 35, 180, 0.05);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.nft-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 0 35px rgba(145, 76, 255, 0.3),
+        inset 0 0 30px rgba(145, 76, 255, 0.08);
+}
+
+.nft-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #caff00;
+}
+
+.nft-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.nft-card p {
+    margin: 18px 0 0;
+    color: #d8c7ff;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .nft-grid {
+        grid-template-columns: 1fr;
+        max-width: 430px;
+    }
+
+    .collection {
+        padding: 90px 20px 80px;
+    }
+}
