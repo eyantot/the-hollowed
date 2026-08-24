@@ -1,7 +1,10 @@
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
-  <main class="site">
+<main class="site">
+
+    <!-- SOUL PARTICLES -->
+    <div class="soul-particles" aria-hidden="true"></div>
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -18,7 +21,6 @@ document.querySelector('#app').innerHTML = `
     <!-- HERO -->
     <section class="hero">
 
-  
 
       <div class="hero-content">
 
@@ -506,4 +508,20 @@ submitWallet.addEventListener('click', () => {
     'Wallet submission will be connected to the allowlist database later.'
   )
 
-})
+})// SOUL PARTICLES
+const particleContainer = document.querySelector('.soul-particles');
+
+for (let i = 0; i < 45; i++) {
+  const particle = document.createElement('span');
+
+  particle.className = 'soul-particle';
+
+  particle.style.left = `${Math.random() * 100}%`;
+  particle.style.top = `${Math.random() * 100}%`;
+  particle.style.animationDelay = `${Math.random() * 8}s`;
+  particle.style.animationDuration = `${7 + Math.random() * 8}s`;
+  particle.style.setProperty('--size', `${1 + Math.random() * 2.5}px`);
+  particle.style.setProperty('--opacity', `${0.15 + Math.random() * 0.45}`);
+
+  particleContainer.appendChild(particle);
+}

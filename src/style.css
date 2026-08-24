@@ -201,7 +201,7 @@ button {
 
 .hero-content {
   position: relative;
-  z-index: 5;
+  z-index: 2;
 
   text-align: center;
 
@@ -1191,4 +1191,55 @@ z-index: 9999;
 .hero::before,
 .hero::after {
   display: none !important;
+}/* =========================================
+   SOUL PARTICLES
+========================================= */
+
+.soul-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.soul-particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+
+  background: #a855ff;
+  opacity: var(--opacity);
+
+  box-shadow:
+    0 0 6px rgba(168, 85, 255, 0.7),
+    0 0 12px rgba(168, 85, 255, 0.25);
+
+  animation: soulFloat ease-in-out infinite;
+}
+
+@keyframes soulFloat {
+  0% {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: var(--opacity);
+  }
+
+  50% {
+    transform: translate3d(20px, -40px, 0);
+    opacity: var(--opacity);
+  }
+
+  80% {
+    opacity: calc(var(--opacity) * 0.7);
+  }
+
+  100% {
+    transform: translate3d(-15px, -100px, 0);
+    opacity: 0;
+  }
 }
