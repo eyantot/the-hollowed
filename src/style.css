@@ -1,0 +1,1031 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #050506;
+  --dark: #09090c;
+  --panel: #0d0c12;
+  --panel-light: #15131c;
+  --border: rgba(255, 255, 255, 0.10);
+  --text: #eeeeee;
+  --muted: #8b8792;
+  --purple: #8d4cff;
+  --purple-dark: #32165f;
+  --red: #7d202b;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(72, 31, 110, 0.18) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgba(85, 20, 30, 0.12) 0%,
+      transparent 40%
+    ),
+    #050506;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  z-index: 50;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 6, 0.92),
+    rgba(5, 5, 6, 0)
+  );
+}
+
+.brand {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: #eeeeee;
+}
+
+.nav-button {
+  border: 1px solid rgba(141, 76, 255, 0.5);
+  background: rgba(10, 8, 14, 0.8);
+  color: white;
+
+  padding: 12px 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  transition: 0.3s ease;
+}
+
+.nav-button:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  box-shadow: 0 0 30px rgba(141, 76, 255, 0.35);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(55, 23, 83, 0.22),
+      transparent 52%
+    );
+}
+
+
+/* dark vignette */
+
+.hero::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 15%,
+      rgba(0, 0, 0, 0.35) 60%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* subtle grain */
+
+.hero::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.055;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   FOG
+========================================= */
+
+.fog {
+  position: absolute;
+
+  width: 650px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: rgba(130, 120, 145, 0.045);
+
+  filter: blur(55px);
+
+  pointer-events: none;
+
+  animation: drift 13s ease-in-out infinite alternate;
+}
+
+.fog-1 {
+  left: -150px;
+  bottom: 15%;
+}
+
+.fog-2 {
+  right: -180px;
+  top: 30%;
+
+  animation-delay: -5s;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-60px);
+  }
+
+  to {
+    transform: translateX(80px);
+  }
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+
+  text-align: center;
+
+  max-width: 850px;
+
+  padding: 100px 30px 60px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 6px;
+
+  color: #8f8998;
+
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(65px, 11vw, 150px);
+
+  line-height: 0.82;
+
+  font-weight: 700;
+
+  letter-spacing: -5px;
+
+  color: #eeeeee;
+
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.04);
+}
+
+.hero h1 span {
+  display: block;
+
+  color: #8c4cff;
+
+  text-shadow:
+    0 0 25px rgba(141, 76, 255, 0.25),
+    0 0 70px rgba(70, 20, 120, 0.18);
+}
+
+.description {
+  max-width: 470px;
+
+  margin: 35px auto;
+
+  color: #918d98;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   MAIN BUTTON
+========================================= */
+
+.main-button {
+  position: relative;
+
+  padding: 17px 34px;
+
+  border: 1px solid rgba(141, 76, 255, 0.6);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(141, 76, 255, 0.16),
+      rgba(25, 15, 35, 0.8)
+    );
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  transition: 0.35s ease;
+
+  box-shadow:
+    0 0 30px rgba(141, 76, 255, 0.05);
+}
+
+.main-button:hover {
+  transform: translateY(-3px);
+
+  background: #8d4cff;
+
+  border-color: #8d4cff;
+
+  box-shadow:
+    0 10px 50px rgba(141, 76, 255, 0.3);
+}
+
+
+/* =========================================
+   SCROLL
+========================================= */
+
+.scroll-hint {
+  position: absolute;
+
+  bottom: 28px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #56525d;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+}
+
+.scroll-hint span {
+  font-size: 20px;
+
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition: 0.3s ease;
+}
+
+.modal.hidden {
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.88);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =========================================
+   QUEST CARD
+========================================= */
+
+.quest-card {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 650px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 35px;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(65, 27, 95, 0.2),
+      transparent 45%
+    ),
+    #0c0a10;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(70, 20, 110, 0.08);
+
+  animation: cardAppear 0.35s ease;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* scrollbar */
+
+.quest-card::-webkit-scrollbar {
+  width: 4px;
+}
+
+.quest-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quest-card::-webkit-scrollbar-thumb {
+  background: #312438;
+}
+
+
+/* =========================================
+   CLOSE
+========================================= */
+
+.close-button {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: transparent;
+
+  color: #77717d;
+
+  font-size: 22px;
+
+  transition: 0.25s;
+}
+
+.close-button:hover {
+  color: white;
+
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================
+   QUEST HEADER
+========================================= */
+
+.quest-header {
+  text-align: center;
+
+  padding: 5px 20px 28px;
+}
+
+.skull {
+  font-size: 28px;
+
+  margin-bottom: 15px;
+
+  color: #8d4cff;
+
+  text-shadow:
+    0 0 25px rgba(141, 76, 255, 0.35);
+}
+
+.quest-eyebrow {
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  color: #67616d;
+
+  margin-bottom: 10px;
+}
+
+.quest-header h2 {
+  font-family: 'Cinzel', serif;
+
+  font-size: 29px;
+
+  letter-spacing: -0.5px;
+}
+
+.quest-header h2 span {
+  color: #8d4cff;
+
+  text-shadow:
+    0 0 20px rgba(141, 76, 255, 0.25);
+}
+
+.quest-description {
+  margin-top: 12px;
+
+  color: #77717d;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-box {
+  padding: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.progress-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+.progress-title strong {
+  color: #aaa4ae;
+}
+
+.progress-title span {
+  color: #8d4cff;
+
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+
+  height: 4px;
+
+  background: #211c26;
+
+  overflow: hidden;
+
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+
+  width: 0%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #52238c,
+      #9c5aff
+    );
+
+  box-shadow:
+    0 0 15px rgba(141, 76, 255, 0.5);
+
+  transition: width 0.4s ease;
+}
+
+
+/* =========================================
+   CONNECT X
+========================================= */
+
+.connect-x {
+  width: 100%;
+
+  height: 48px;
+
+  border: none;
+
+  background: #eeeeee;
+
+  color: #09090a;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  margin-bottom: 12px;
+
+  transition: 0.25s ease;
+}
+
+.connect-x:hover {
+  background: white;
+
+  box-shadow:
+    0 5px 25px rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   TASKS
+========================================= */
+
+.tasks {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.task {
+  position: relative;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  background: rgba(255, 255, 255, 0.018);
+
+  transition: 0.25s ease;
+}
+
+.task:hover {
+  border-color: rgba(141, 76, 255, 0.25);
+
+  background: rgba(141, 76, 255, 0.025);
+}
+
+.task > input {
+  display: none;
+}
+
+.task label {
+  min-height: 64px;
+
+  padding: 10px 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.task-number {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #59535f;
+
+  font-size: 9px;
+
+  transition: 0.25s;
+}
+
+.task-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  flex: 1;
+}
+
+.task-content strong {
+  font-size: 11px;
+
+  color: #bdb7c1;
+}
+
+.task-content span {
+  font-size: 9px;
+
+  color: #625d66;
+}
+
+.task label a {
+  color: #716a78;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  letter-spacing: 0.5px;
+}
+
+.task label a:hover {
+  color: #a86dff;
+}
+
+
+/* checked */
+
+.task > input:checked + label {
+  background: rgba(141, 76, 255, 0.07);
+}
+
+.task > input:checked + label .task-number {
+  border-color: #8d4cff;
+
+  color: #b57dff;
+
+  box-shadow:
+    0 0 15px rgba(141, 76, 255, 0.2);
+}
+
+.task > input:checked + label .task-content strong {
+  color: #e6d9f7;
+}
+
+
+/* =========================================
+   PROOF INPUT
+========================================= */
+
+.proof-input {
+  display: block;
+
+  width: calc(100% - 26px);
+
+  height: 38px;
+
+  margin: 0 13px 13px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  outline: none;
+
+  background: #0a090e;
+
+  color: white;
+
+  font-size: 10px;
+}
+
+.proof-input::placeholder {
+  color: #4f4a54;
+}
+
+.proof-input:focus {
+  border-color: rgba(141, 76, 255, 0.4);
+}
+
+
+/* =========================================
+   WALLET SECTION
+========================================= */
+
+.wallet-section {
+  margin-top: 14px;
+
+  padding: 25px;
+
+  text-align: center;
+
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(141, 76, 255, 0.06),
+      transparent 70%
+    );
+
+  transition: 0.4s ease;
+}
+
+.wallet-section.locked {
+  opacity: 0.55;
+}
+
+.lock-icon {
+  font-size: 18px;
+
+  margin-bottom: 10px;
+}
+
+.wallet-section h3 {
+  font-family: 'Cinzel', serif;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+}
+
+.wallet-section p {
+  margin: 8px auto 18px;
+
+  max-width: 400px;
+
+  color: #69636e;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.wallet-form {
+  display: flex;
+
+  gap: 8px;
+}
+
+.wallet-form input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 43px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  outline: none;
+
+  background: #09080d;
+
+  color: white;
+
+  font-size: 10px;
+}
+
+.wallet-form input::placeholder {
+  color: #4d4851;
+}
+
+.wallet-form input:focus {
+  border-color: rgba(141, 76, 255, 0.4);
+}
+
+.wallet-form button {
+  height: 43px;
+
+  padding: 0 18px;
+
+  border: 1px solid #8d4cff;
+
+  background: #8d4cff;
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  transition: 0.25s;
+}
+
+.wallet-form button:hover {
+  background: #a76cff;
+
+  box-shadow:
+    0 0 25px rgba(141, 76, 255, 0.25);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    height: 70px;
+
+    padding: 0 20px;
+  }
+
+  .brand {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+  }
+
+  .nav-button {
+    padding: 10px 12px;
+
+    font-size: 8px;
+  }
+
+  .hero-content {
+    padding: 100px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 65px;
+
+    letter-spacing: -3px;
+  }
+
+  .description {
+    font-size: 12px;
+
+    margin: 28px auto;
+  }
+
+  .main-button {
+    padding: 15px 25px;
+  }
+
+  .quest-card {
+    padding: 22px 15px;
+
+    max-height: 94vh;
+  }
+
+  .quest-header h2 {
+    font-size: 24px;
+  }
+
+  .progress-box {
+    padding: 14px;
+  }
+
+  .task label {
+    padding: 9px;
+  }
+
+  .task-content strong {
+    font-size: 10px;
+  }
+
+  .task-content span {
+    font-size: 8px;
+  }
+
+  .task label a {
+    font-size: 8px;
+  }
+
+  .wallet-form {
+    flex-direction: column;
+  }
+
+  .wallet-form input,
+  .wallet-form button {
+    width: 100%;
+  }
+}
