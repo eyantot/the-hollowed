@@ -62,7 +62,7 @@ document.querySelector('#app').innerHTML = `
         <!-- NFT #0001 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/nft-1.png" alt="Hollowed #0001">
+                <img src="/hollowed1.png" alt="Hollowed #0001">
             </div>
             <p>HOLLOWED #0001</p>
         </div>
@@ -70,7 +70,7 @@ document.querySelector('#app').innerHTML = `
         <!-- NFT #0002 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/nft-2.png" alt="Hollowed #0002">
+                <img src="/hollowed2.png" alt="Hollowed #0002">
             </div>
             <p>HOLLOWED #0002</p>
         </div>
@@ -78,7 +78,7 @@ document.querySelector('#app').innerHTML = `
         <!-- NFT #0003 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/nft-3.png" alt="Hollowed #0003">
+                <img src="/hollowed3.png" alt="Hollowed #0003">
             </div>
             <p>HOLLOWED #0003</p>
         </div>
