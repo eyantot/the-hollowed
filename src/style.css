@@ -239,6 +239,49 @@ img {
   min-width: 220px;
 }
 
+.site-footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(2, 1, 5, 0.9);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-inner p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #d3b6ff;
+}
+
 /* COLLECTION */
 .collection {
   position: relative;

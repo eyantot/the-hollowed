@@ -135,6 +135,17 @@ document.querySelector('#app').innerHTML = `
       </div>
     </section>
 
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© The Hollowed</p>
+        <div class="footer-links" aria-label="Social links">
+          <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
+          <a href="https://discord.com" target="_blank" rel="noreferrer">DISCORD</a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">INSTAGRAM</a>
+        </div>
+      </div>
+    </footer>
+
     <!-- ALLOWLIST MODAL -->
     <div class="modal hidden" id="allowlist-modal">
 
