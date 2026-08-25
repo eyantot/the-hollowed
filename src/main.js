@@ -142,6 +142,9 @@ document.querySelector('#app').innerHTML = `
           <a href="https://x.com/hollowedrh" target="_blank" rel="noreferrer" aria-label="Follow The Hollowed on X" class="x-badge">
             X
           </a>
+          <a href="#home" aria-label="Go to home page" class="site-badge" title="Home">
+            <span aria-hidden="true">◌</span>
+          </a>
         </div>
       </div>
     </footer>
