@@ -63,25 +63,25 @@ document.querySelector('#app').innerHTML = `
         <!-- NFT #0001 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/hollowed1.png" alt="Hollowed #0001">
+                <img src="/hollowed1.png" alt="Hollowed #####">
             </div>
-            <p>HOLLOWED #0001</p>
+            <p>HOLLOWED ####</p>
         </div>
 
         <!-- NFT #0002 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/hollowed2.png" alt="Hollowed #0002">
+                <img src="/hollowed2.png" alt="Hollowed #####">
             </div>
-            <p>HOLLOWED #0002</p>
+            <p>HOLLOWED ####</p>
         </div>
 
         <!-- NFT #0003 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/hollowed3-v2.png" alt="Hollowed #0003">
+                <img src="/hollowed3-v2.png" alt="Hollowed #####">
             </div>
-            <p>HOLLOWED #0003</p>
+            <p>HOLLOWED ####</p>
         </div>
 
     </div>
@@ -511,17 +511,29 @@ submitWallet.addEventListener('click', () => {
 })// SOUL PARTICLES
 const particleContainer = document.querySelector('.soul-particles');
 
-for (let i = 0; i < 45; i++) {
+for (let i = 0; i < 90; i++) {
   const particle = document.createElement('span');
+  const isShard = Math.random() > 0.75;
+  const size = isShard ? 2 + Math.random() * 5 : 1.5 + Math.random() * 3.5;
+  const opacity = 0.3 + Math.random() * 0.6;
+  const driftX = (Math.random() - 0.5) * 90;
+  const driftY = -30 - Math.random() * 120;
+  const rotation = Math.random() * 180;
+  const blur = Math.random() * 1.8;
+  const shape = Math.random() > 0.74 ? '50% 50% 42% 58% / 52% 38% 62% 48%' : '50%';
 
   particle.className = 'soul-particle';
-
   particle.style.left = `${Math.random() * 100}%`;
   particle.style.top = `${Math.random() * 100}%`;
-  particle.style.animationDelay = `${Math.random() * 8}s`;
-  particle.style.animationDuration = `${7 + Math.random() * 8}s`;
-  particle.style.setProperty('--size', `${1 + Math.random() * 2.5}px`);
-  particle.style.setProperty('--opacity', `${0.15 + Math.random() * 0.45}`);
+  particle.style.setProperty('--size', `${size}px`);
+  particle.style.setProperty('--opacity', opacity.toFixed(2));
+  particle.style.setProperty('--drift-x', `${driftX}px`);
+  particle.style.setProperty('--drift-y', `${driftY}px`);
+  particle.style.setProperty('--delay', `${Math.random() * 12}s`);
+  particle.style.setProperty('--speed', `${8 + Math.random() * 12}s`);
+  particle.style.setProperty('--blur', `${blur}px`);
+  particle.style.setProperty('--shape', shape);
+  particle.style.setProperty('--rotation', `${rotation}deg`);
 
   particleContainer.appendChild(particle);
 }
