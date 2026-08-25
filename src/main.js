@@ -35,8 +35,8 @@ document.querySelector('#app').innerHTML = `
         </p>
 
         <h1>
-          THE
-          <span>HOLLOWED</span>
+          <span class="title-the">THE</span>
+          <span class="title-hollowed">HOLLOWED</span>
         </h1>
 
         <p class="description">
@@ -48,6 +48,11 @@ document.querySelector('#app').innerHTML = `
         <button class="main-button" id="hero-allowlist">
           ENTER THE HOLLOW
         </button>
+
+        <div class="descent-indicator" aria-hidden="true">
+          <span>DESCEND</span>
+          <span class="descent-arrow">↓</span>
+        </div>
 
       </div>
 
@@ -139,7 +144,7 @@ document.querySelector('#app').innerHTML = `
       <div class="footer-inner">
         <p>© The Hollowed</p>
         <div class="footer-links" aria-label="Social links">
-          <a href="https://x.com/hollowedrh" target="_blank" rel="noreferrer" aria-label="Follow The Hollowed on X" class="x-badge">
+          <a href="https://x.com/thehollowedrh" target="_blank" rel="noreferrer" aria-label="Follow The Hollowed on X" class="x-badge">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M18.9 2h3.4l-7.4 8.5L22.5 22h-6.7l-5.2-7.6L4.9 22H1.5l7.9-9.1L1.2 2h6.9l4.7 7 5.1-7zm-1.3 18.8h1.9L6.9 3.1H4.9l12.7 16.7z"/>
             </svg>
@@ -243,7 +248,7 @@ document.querySelector('#app').innerHTML = `
                 </div>
 
                 <a
-                  href="https://x.com/hollowedrh"
+                  href="https://x.com/thehollowedrh"
                   target="_blank">
                   OPEN ↗
                 </a>
