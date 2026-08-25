@@ -231,7 +231,7 @@ document.querySelector('#app').innerHTML = `
                 id="task1"
               >
 
-              <label for="task1">
+              <div class="task-row">
 
                 <div class="task-number">
                   01
@@ -253,7 +253,7 @@ document.querySelector('#app').innerHTML = `
                   OPEN ↗
                 </a>
 
-              </label>
+              </div>
 
             </div>
 
@@ -266,7 +266,7 @@ document.querySelector('#app').innerHTML = `
                 id="task2"
               >
 
-              <label for="task2">
+              <div class="task-row">
 
                 <div class="task-number">
                   02
@@ -288,7 +288,7 @@ document.querySelector('#app').innerHTML = `
                   OPEN ↗
                 </a>
 
-              </label>
+              </div>
 
             </div>
 
@@ -301,7 +301,7 @@ document.querySelector('#app').innerHTML = `
                 id="task3"
               >
 
-              <label for="task3">
+              <div class="task-row">
 
                 <div class="task-number">
                   03
@@ -323,12 +323,7 @@ document.querySelector('#app').innerHTML = `
                   OPEN ↗
                 </a>
 
-              </label>
-
-              <input
-                class="proof-input"
-                placeholder="Paste your quote post link..."
-              >
+              </div>
 
             </div>
 
@@ -341,7 +336,7 @@ document.querySelector('#app').innerHTML = `
                 id="task4"
               >
 
-              <label for="task4">
+              <div class="task-row">
 
                 <div class="task-number">
                   04
@@ -363,12 +358,23 @@ document.querySelector('#app').innerHTML = `
                   OPEN ↗
                 </a>
 
-              </label>
+              </div>
 
-              <input
-                class="proof-input"
-                placeholder="Paste your comment link..."
-              >
+              <div class="proof-area">
+                <span class="proof-label">PROOF URL</span>
+                <div class="proof-controls">
+                  <input
+                    type="url"
+                    id="task4-proof"
+                    aria-label="Proof URL for the comment tagging three friends"
+                    class="proof-input"
+                    placeholder="Paste your comment link..."
+                  >
+                  <button id="submit-task4-proof" type="button" disabled>
+                    SUBMIT
+                  </button>
+                </div>
+              </div>
 
             </div>
 
@@ -472,6 +478,17 @@ const tasks =
     '.task input[type="checkbox"]'
   )
 
+const taskLinks =
+  document.querySelectorAll('.task-row a')
+
+const task4Proof =
+  document.querySelector('#task4-proof')
+
+const submitTask4Proof =
+  document.querySelector('#submit-task4-proof')
+
+let task4ProofSubmitted = false
+
 const progressText =
   document.querySelector('#progress-text')
 
@@ -499,7 +516,7 @@ function updateProgress() {
 
 
   // Unlock wallet after all quests
-  if (completed === 4) {
+  if (completed === 4 && task4ProofSubmitted) {
 
     walletSection.classList.remove('locked')
 
@@ -521,6 +538,7 @@ function updateProgress() {
 
   } else {
 
+    walletSection.classList.add('locked')
     submitWallet.disabled = true
 
   }
@@ -530,10 +548,60 @@ function updateProgress() {
 
 tasks.forEach(task => {
 
+  task.disabled = true
+
   task.addEventListener(
     'change',
     updateProgress
   )
+
+})
+
+task4Proof.addEventListener('input', () => {
+  task4ProofSubmitted = false
+  submitTask4Proof.disabled = task4Proof.value.trim() === ''
+  submitTask4Proof.textContent = 'SUBMIT'
+  updateProgress()
+})
+
+submitTask4Proof.addEventListener('click', () => {
+  if (!task4Proof.value.trim()) return
+
+  task4ProofSubmitted = true
+  task4Proof.disabled = true
+  submitTask4Proof.disabled = true
+  submitTask4Proof.textContent = 'SUBMITTED ✓'
+  updateProgress()
+})
+
+taskLinks.forEach(link => {
+
+  link.addEventListener('click', event => {
+
+    if (link.getAttribute('href') === '#') {
+      event.preventDefault()
+    }
+
+    const task = link.closest('.task')
+    const checkbox = task.querySelector(
+      'input[type="checkbox"]'
+    )
+
+    if (checkbox.checked || link.dataset.verifying === 'true') return
+
+    link.dataset.verifying = 'true'
+    link.textContent = 'VERIFYING...'
+    task.classList.add('is-verifying')
+
+    window.setTimeout(() => {
+      checkbox.checked = true
+      link.textContent = 'VERIFIED ✓'
+      task.classList.remove('is-verifying')
+      task.classList.add('is-complete')
+      updateProgress()
+    }, 8000)
+
+  })
 
 })
 
@@ -548,13 +616,19 @@ tasks.forEach(task => {
 const submitWallet =
   document.querySelector('#submit-wallet')
 
+const walletInput =
+  document.querySelector('#wallet-input')
 
-submitWallet.addEventListener('click', () => {
+const supabaseFunctionUrl =
+  'https://byunajsvoagtwjzismci.supabase.co/functions/v1/submit-wallet'
 
-  const wallet =
-    document.querySelector(
-      '#wallet-input'
-    ).value.trim()
+const supabasePublishableKey =
+  'sb_publishable_KAFSGLmTotev_tF8tRbLrg_dauPGvvk'
+
+submitWallet.addEventListener('click', async () => {
+
+  const wallet = walletInput.value.trim()
+  const proofUrl = task4Proof.value.trim()
 
 
   if (!wallet) {
@@ -567,10 +641,43 @@ submitWallet.addEventListener('click', () => {
 
   }
 
+  if (!proofUrl || !task4ProofSubmitted) {
+    alert('Submit your task 4 comment link first.')
+    return
+  }
 
-  alert(
-    'Wallet submission will be connected to the allowlist database later.'
-  )
+  submitWallet.disabled = true
+  submitWallet.textContent = 'SUBMITTING...'
+
+  try {
+    const response = await fetch(supabaseFunctionUrl, {
+      method: 'POST',
+headers: {
+  'Content-Type': 'application/json',
+  apikey: supabasePublishableKey,
+  Authorization: `Bearer ${supabasePublishableKey}`,
+},
+      body: JSON.stringify({
+        wallet_address: wallet,
+        proof_url: proofUrl,
+      }),
+    })
+
+    const result = await response.json()
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Unable to save wallet submission')
+    }
+
+    submitWallet.textContent = 'SUBMITTED ✓'
+    walletInput.disabled = true
+    walletSection.querySelector('p').textContent =
+      'Your place has been recorded in the Hollow.'
+  } catch (error) {
+    submitWallet.disabled = false
+    submitWallet.textContent = 'CLAIM SOUL'
+    alert(error.message)
+  }
 
 })// SOUL PARTICLES
 const particleContainer = document.querySelector('.soul-particles');

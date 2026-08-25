@@ -782,17 +782,29 @@ img {
   background: rgba(141, 76, 255, 0.025);
 }
 
-.task > input {
-  display: none;
+.task > input[type="checkbox"] {
+  position: absolute;
+  left: 13px;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+  pointer-events: none;
+  accent-color: var(--purple);
+  transform: translateY(-50%);
 }
 
-.task label {
+.task > input[type="checkbox"]:disabled {
+  opacity: 1;
+}
+
+.task-row {
   min-height: 64px;
-  padding: 10px 13px;
+  padding: 10px 13px 10px 48px;
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .task-number {
@@ -826,7 +838,7 @@ img {
   color: #817985;
 }
 
-.task label a {
+.task-row a {
   color: #857d8b;
   font-size: 9px;
   font-weight: 700;
@@ -834,36 +846,99 @@ img {
   letter-spacing: 0.5px;
 }
 
-.task label a:hover {
+.task-row a:hover {
   color: var(--purple-bright);
 }
 
-.task > input:checked + label {
+.task.is-verifying {
+  border-color: rgba(176, 123, 255, 0.55);
+  box-shadow: 0 0 16px rgba(141, 76, 255, 0.12);
+}
+
+.task.is-verifying .task-row a {
+  color: var(--purple-bright);
+}
+
+.task.is-complete .task-row a {
+  color: #9fe0bd;
+}
+
+.task > input:checked + .task-row {
   background: rgba(141, 76, 255, 0.07);
 }
 
-.task > input:checked + label .task-number {
+.task > input:checked + .task-row .task-number {
   border-color: var(--purple);
   color: var(--purple-bright);
   box-shadow: 0 0 15px rgba(141, 76, 255, 0.2);
 }
 
-.task > input:checked + label .task-content strong {
+.task > input:checked + .task-row .task-content strong {
   color: #f0e7ff;
 }
 
 .proof-input {
   display: block;
-  width: calc(100% - 26px);
-  height: 38px;
-  margin: 0 13px 13px;
+  width: 100%;
+  height: 42px;
+  margin: 0;
   padding: 0 12px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
+  border: 1px solid rgba(176, 123, 255, 0.3);
+  border-radius: 8px;
   outline: none;
-  background: rgba(8, 7, 11, 0.95);
+  background: rgba(8, 7, 11, 0.82);
   color: var(--white);
   font-size: 10px;
+  cursor: text;
+  pointer-events: auto;
+}
+
+.proof-controls {
+  display: flex;
+  gap: 8px;
+  margin: 7px 13px 13px;
+}
+
+.proof-controls .proof-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.proof-controls button {
+  flex: 0 0 auto;
+  min-width: 92px;
+  border: 1px solid rgba(141, 76, 255, 0.65);
+  background: rgba(141, 76, 255, 0.08);
+  color: #d7c2ff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.proof-controls button:not(:disabled):hover {
+  border-color: var(--purple-bright);
+  background: rgba(141, 76, 255, 0.18);
+}
+
+.proof-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.proof-area {
+  padding: 10px 0 1px;
+  border-top: 1px solid rgba(176, 123, 255, 0.16);
+}
+
+.proof-label {
+  display: block;
+  margin: 0 13px;
+  color: #817985;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .proof-input::placeholder {
@@ -871,8 +946,8 @@ img {
 }
 
 .proof-input:focus {
-  border-color: rgba(141, 76, 255, 0.4);
-  box-shadow: 0 0 0 3px rgba(141, 76, 255, 0.08);
+  border-color: rgba(176, 123, 255, 0.8);
+  box-shadow: 0 0 0 3px rgba(141, 76, 255, 0.12);
 }
 
 .wallet-section {
@@ -1144,6 +1219,14 @@ img {
     gap: 12px;
   }
 
+  .proof-controls {
+    flex-direction: column;
+  }
+
+  .proof-controls button {
+    min-height: 38px;
+  }
+
   .quest-card {
     padding: 22px 15px;
     max-height: 94vh;
@@ -1157,7 +1240,7 @@ img {
     padding: 14px;
   }
 
-  .task label {
+  .task-row {
     padding: 9px;
   }
 
@@ -1169,7 +1252,7 @@ img {
     font-size: 8px;
   }
 
-  .task label a {
+  .task-row a {
     font-size: 8px;
   }
 
