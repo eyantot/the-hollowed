@@ -139,7 +139,9 @@ document.querySelector('#app').innerHTML = `
       <div class="footer-inner">
         <p>© The Hollowed</p>
         <div class="footer-links" aria-label="Social links">
-          <a href="https://x.com/hollowedrh" target="_blank" rel="noreferrer">X</a>
+          <a href="https://x.com/hollowedrh" target="_blank" rel="noreferrer" aria-label="Follow The Hollowed on X" class="x-badge">
+            X
+          </a>
         </div>
       </div>
     </footer>

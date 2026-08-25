@@ -278,6 +278,22 @@ img {
   transition: color 0.2s ease;
 }
 
+.x-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(176, 123, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(141, 76, 255, 0.08);
+  color: #f3ebff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 .footer-links a:hover {
   color: #d3b6ff;
 }
