@@ -139,9 +139,7 @@ document.querySelector('#app').innerHTML = `
       <div class="footer-inner">
         <p>© The Hollowed</p>
         <div class="footer-links" aria-label="Social links">
-          <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
-          <a href="https://discord.com" target="_blank" rel="noreferrer">DISCORD</a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">INSTAGRAM</a>
+          <a href="https://x.com/hollowedrh" target="_blank" rel="noreferrer">X</a>
         </div>
       </div>
     </footer>
