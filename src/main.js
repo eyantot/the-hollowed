@@ -620,10 +620,10 @@ const walletInput =
   document.querySelector('#wallet-input')
 
 const supabaseFunctionUrl =
-  'https://byunajsvoagtwjzismci.supabase.co/functions/v1/submit-wallet'
+  'https://qttqvmnxzcvkufiptlof.supabase.co/functions/v1/submit-wallet'
 
 const supabasePublishableKey =
-  'sb_publishable_KAFSGLmTotev_tF8tRbLrg_dauPGvvk'
+  'sb_publishable_qJ1aZVMJhhC_vQy2Hjx2yg_OVyG1q7b'
 
 submitWallet.addEventListener('click', async () => {
 
@@ -655,7 +655,6 @@ submitWallet.addEventListener('click', async () => {
 headers: {
   'Content-Type': 'application/json',
   apikey: supabasePublishableKey,
-  Authorization: `Bearer ${supabasePublishableKey}`,
 },
       body: JSON.stringify({
         wallet_address: wallet,
@@ -663,7 +662,7 @@ headers: {
       }),
     })
 
-    const result = await response.json()
+    const result = await response.json().catch(() => ({}))
 
     if (!response.ok) {
       throw new Error(result.error || 'Unable to save wallet submission')
@@ -707,4 +706,24 @@ for (let i = 0; i < 90; i++) {
   particle.style.setProperty('--rotation', `${rotation}deg`);
 
   particleContainer.appendChild(particle);
+}
+// Smooth section navigation without changing the URL hash
+document.querySelectorAll('a[href="#home"], a[href="#collection"], a[href="#lore"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const target = document.querySelector(link.getAttribute('href'));
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Remove any existing #hash from the URL on page load
+if (window.location.hash) {
+  history.replaceState(null, '', window.location.pathname + window.location.search);
 }
