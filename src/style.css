@@ -313,8 +313,8 @@ img {
 }
 
 .collection-header h2 span {
-  color: #914cff;
-  text-shadow: 0 0 25px rgba(145, 76, 255, 0.45);
+  color: var(--white);
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
 }
 
 .collection-description {
