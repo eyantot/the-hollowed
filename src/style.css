@@ -94,6 +94,7 @@ img {
   gap: clamp(18px, 3vw, 40px);
   flex: 1;
   text-align: center;
+  transform: translateX(-18px);
 }
 
 .nav-links a {
