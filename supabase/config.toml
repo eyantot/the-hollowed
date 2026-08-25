@@ -1,0 +1,4 @@
+project_id = "qttqvmnxzcvkufiptlof"
+
+[functions.submit-wallet]
+verify_jwt = false

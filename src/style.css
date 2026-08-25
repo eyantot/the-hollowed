@@ -785,13 +785,51 @@ img {
 .task > input[type="checkbox"] {
   position: absolute;
   left: 13px;
-  top: 32px;
-  width: 16px;
-  height: 16px;
+top: 25px;
+
+  width: 14px;
+  height: 14px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  transition: 0.2s ease;
+}
+
+.task > input[type="checkbox"]::after {
+  content: '✓';
+
+  color: #07130d;
+  font-size: 10px;
+  font-weight: 900;
+
+  opacity: 0;
+  transform: scale(0.5);
+
+  transition: 0.15s ease;
+}
+
+/* COMPLETED */
+.task > input[type="checkbox"]:checked {
+  background: #39d98a;
+  border-color: #39d98a;
+
+  box-shadow: 0 0 10px rgba(57, 217, 138, 0.4);
+}
+
+.task > input[type="checkbox"]:checked::after {
   opacity: 1;
-  pointer-events: none;
-  accent-color: var(--purple);
-  transform: translateY(-50%);
+  transform: scale(1);
 }
 
 .task > input[type="checkbox"]:disabled {
