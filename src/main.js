@@ -75,7 +75,7 @@ document.querySelector('#app').innerHTML = `
         <!-- NFT #0001 -->
         <div class="nft-card">
             <div class="nft-image">
-                <img src="/hollowed2.png" alt="Hollowed #####">
+                <img src="/hollowed2-v2.png" alt="Hollowed #####">
             </div>
             <p>HOLLOWED ####</p>
         </div>
@@ -373,18 +373,6 @@ document.querySelector('#app').innerHTML = `
             </div>
 
 
-            <!-- TASK 5 -->
-            <div class="task">
-
-              <input
-                type="checkbox"
-                id="task5"
-              >
-
-
-
-            </div>
-
           </div>
 
         </div>
@@ -404,8 +392,7 @@ document.querySelector('#app').innerHTML = `
           </h3>
 
           <p>
-            Complete all four rituals
-            to unlock your place.
+            Complete 4 rituals to unlock your place.
           </p>
 
 
@@ -416,7 +403,7 @@ document.querySelector('#app').innerHTML = `
               placeholder="Enter wallet address"
             >
 
-            <button id="submit-wallet">
+            <button id="submit-wallet" disabled>
               CLAIM SOUL
             </button>
 
@@ -516,6 +503,8 @@ function updateProgress() {
 
     walletSection.classList.remove('locked')
 
+    submitWallet.disabled = false
+
     walletSection.querySelector(
       '.lock-icon'
     ).textContent = '✦'
@@ -529,6 +518,10 @@ function updateProgress() {
       'p'
     ).textContent =
       'The Hollow has accepted you. Enter your wallet.'
+
+  } else {
+
+    submitWallet.disabled = true
 
   }
 
