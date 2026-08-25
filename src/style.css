@@ -283,25 +283,41 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(176, 123, 255, 0.6);
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(176, 123, 255, 0.8);
   border-radius: 50%;
-  background: rgba(141, 76, 255, 0.08);
+  background: rgba(141, 76, 255, 0.06);
   color: #f3ebff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1;
   text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.site-badge {
-  font-size: 16px;
+.x-badge svg,
+.site-badge svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
 }
 
-.footer-links a:hover {
-  color: #d3b6ff;
+.site-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.x-badge:hover,
+.site-badge:hover {
+  transform: translateY(-1px);
+  border-color: rgba(210, 177, 255, 0.95);
+  box-shadow: 0 0 18px rgba(141, 76, 255, 0.14);
 }
 
 /* COLLECTION */

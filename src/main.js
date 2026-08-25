@@ -140,10 +140,15 @@ document.querySelector('#app').innerHTML = `
         <p>© The Hollowed</p>
         <div class="footer-links" aria-label="Social links">
           <a href="https://x.com/hollowedrh" target="_blank" rel="noreferrer" aria-label="Follow The Hollowed on X" class="x-badge">
-            X
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.9 2h3.4l-7.4 8.5L22.5 22h-6.7l-5.2-7.6L4.9 22H1.5l7.9-9.1L1.2 2h6.9l4.7 7 5.1-7zm-1.3 18.8h1.9L6.9 3.1H4.9l12.7 16.7z"/>
+            </svg>
           </a>
           <a href="#home" aria-label="Go to home page" class="site-badge" title="Home">
-            <span aria-hidden="true">◌</span>
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <circle cx="64" cy="64" r="54"/>
+              <path d="M64 10v108M10 64h108M28 32c8 7 17 10 36 10s28-3 36-10M28 96c8-7 17-10 36-10s28 3 36 10M18 46c15 9 25 12 46 12s31-3 46-12M18 82c15-9 25-12 46-12s31 3 46 12"/>
+            </svg>
           </a>
         </div>
       </div>
