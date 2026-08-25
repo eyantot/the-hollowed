@@ -1006,12 +1006,53 @@ img {
   .collection {
     padding: 90px 20px 80px;
   }
+
+  .lore {
+    padding: 70px 20px 90px;
+  }
+
+  .lore-grid {
+    padding: 0;
+  }
+
+  .lore-row,
+  .lore-row.reversed {
+    grid-template-columns: 90px minmax(0, 1fr);
+    column-gap: 22px;
+    min-height: 135px;
+  }
+
+  .lore-row.reversed .lore-copy,
+  .lore-row.reversed .lore-number {
+    order: initial;
+    justify-self: initial;
+  }
+
+  .lore-row.reversed .lore-number,
+  .lore-row:not(.reversed) .lore-number {
+    transform: none;
+  }
+
+  .lore-number {
+    font-size: clamp(64px, 16vw, 100px);
+  }
+
+  .lore-copy h3 {
+    font-size: clamp(24px, 5vw, 38px);
+  }
+
+  .lore-copy p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
 }
 
 @media (max-width: 600px) {
   .navbar {
-    height: 70px;
+    height: 98px;
     padding: 0 20px;
+    align-items: flex-start;
+    padding-top: 20px;
   }
 
   .brand {
@@ -1024,13 +1065,27 @@ img {
     font-size: 8px;
   }
 
+  .nav-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    gap: clamp(16px, 7vw, 30px);
+    transform: none;
+  }
+
+  .nav-links a {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
   .hero-content {
     padding: 100px 20px 60px;
   }
 
   .hero h1 {
-    font-size: 65px;
-    letter-spacing: -3px;
+    font-size: clamp(44px, 15vw, 65px);
+    letter-spacing: -2px;
   }
 
   .description {
@@ -1040,6 +1095,20 @@ img {
 
   .main-button {
     padding: 15px 25px;
+  }
+
+  .descent-indicator {
+    margin-top: 88px;
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .footer-inner {
+    padding: 20px;
+  }
+
+  .footer-links {
+    gap: 12px;
   }
 
   .quest-card {
@@ -1078,5 +1147,50 @@ img {
   .wallet-form input,
   .wallet-form button {
     width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .brand {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .nav-button {
+    padding: 9px 8px;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .lore-row,
+  .lore-row.reversed {
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+
+  .lore-number {
+    font-size: 62px;
+  }
+
+  .lore-copy h3 {
+    font-size: 22px;
+  }
+
+  .lore-copy p {
+    font-size: 12px;
   }
 }
