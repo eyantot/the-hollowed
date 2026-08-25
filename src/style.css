@@ -559,7 +559,7 @@ img {
 
 .lore-number {
   font-family: 'Cinzel', serif;
-  font-size: clamp(86px, 10vw, 150px);
+  font-size: clamp(81px, 10vw, 145px);
   line-height: 0.78;
   color: rgba(176, 123, 255, 0.75);
   text-shadow: 0 0 18px rgba(176, 123, 255, 0.28);
@@ -582,7 +582,7 @@ img {
 
 .lore-copy h3 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(28px, 2.8vw, 52px);
+  font-size: clamp(26px, 2.8vw, 50px);
   line-height: 1.05;
   color: var(--white);
   margin: 0;
@@ -1066,11 +1066,11 @@ img {
   }
 
   .lore-number {
-    font-size: clamp(72px, 16vw, 108px);
+    font-size: clamp(67px, 16vw, 103px);
   }
 
   .lore-copy h3 {
-    font-size: clamp(26px, 5vw, 42px);
+    font-size: clamp(24px, 5vw, 40px);
   }
 
   .lore-copy p {
@@ -1216,7 +1216,7 @@ img {
   }
 
   .lore-number {
-    font-size: 62px;
+    font-size: 57px;
   }
 
   .lore-copy h3 {
