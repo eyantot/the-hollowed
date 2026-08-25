@@ -8,8 +8,14 @@ document.querySelector('#app').innerHTML = `
 
     <!-- NAVBAR -->
     <nav class="navbar">
-      <div class="brand">
+      <a href="#home" class="brand" aria-label="Go to home section">
         THE HOLLOWED
+      </a>
+
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#home">HOME</a>
+        <a href="#collection">COLLECTION</a>
+        <a href="#lore">LORE</a>
       </div>
 
       <button class="nav-button" id="open-allowlist">
@@ -19,7 +25,7 @@ document.querySelector('#app').innerHTML = `
 
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="home">
 
 
       <div class="hero-content">
@@ -49,9 +55,10 @@ document.querySelector('#app').innerHTML = `
 
     </section>
 <!-- NFT COLLECTION -->
-<section class="collection">
+<section class="collection" id="collection">
     <div class="collection-header">
         <p class="collection-eyebrow">THE SOULS REMAIN</p>
+        <div class="section-divider" aria-hidden="true"></div>
         <h2>THE <span>HOLLOWED</span></h2>
         <p class="collection-description">
             2,666 souls. One hollow. No way back.
@@ -86,7 +93,47 @@ document.querySelector('#app').innerHTML = `
 
     </div>
 
-    
+    <section class="lore" id="lore">
+      <div class="lore-header">
+        <p class="lore-chapter">CHAPTER 0</p>
+        <h2>THE LORE</h2>
+      </div>
+
+      <div class="lore-grid">
+        <div class="lore-row">
+          <div class="lore-number">I</div>
+          <div class="lore-copy">
+            <h3>THE FALL</h3>
+            <p>
+              Long before memory, 2,666 souls crossed the veil in search of forbidden
+              knowledge. None returned whole.
+            </p>
+          </div>
+        </div>
+
+        <div class="lore-row reversed">
+          <div class="lore-number">II</div>
+          <div class="lore-copy">
+            <h3>THE HOLLOW</h3>
+            <p>
+              Their bodies remained, but the light within was drained — leaving only
+              echoes drifting in an endless dark.
+            </p>
+          </div>
+        </div>
+
+        <div class="lore-row">
+          <div class="lore-number">III</div>
+          <div class="lore-copy">
+            <h3>THE RETURN</h3>
+            <p>
+              Now they stir. Whispered calls across the void, searching for a wanderer
+              brave enough to claim them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ALLOWLIST MODAL -->
     <div class="modal hidden" id="allowlist-modal">
