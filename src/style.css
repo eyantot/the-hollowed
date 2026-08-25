@@ -207,7 +207,7 @@ img {
   text-align: center;
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.04);
   width: min(980px, 100%);
-  transform: translateX(12px);
+  transform: translateX(-12px);
 }
 
 .hero h1 span {
